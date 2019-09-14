@@ -31,7 +31,7 @@ int isKaprekar(int n) {
   int i;
   int kaprekarFlag = 0;
   //compute the square
-  long square = n * (long) n;
+  long long square = n * (long) n;
   //compute the number of digits of the square
   int numDigits = (int) log10(n) + 1;
   long modulus = 1;
@@ -43,8 +43,9 @@ int isKaprekar(int n) {
     modulus *= 10;
 
     //split the square into two parts
-    first = square % modulus;
-    second = square / modulus;
+    second = square % modulus;
+    first = square / modulus;
+    printf("%li first %li second", first, second);
 
     //test if the split makes a Kaprekar number
     //the second part cannot be zero and if
