@@ -25,14 +25,15 @@
 int isKaprekar(int n) {
 
   if(n < 1) {
-    return 1;
+    return 0;
   }
 
   int i;
+  int kaprekarFlag = 0;
   //compute the square
   long square = n * (long) n;
   //compute the number of digits of the square
-  int numDigits = (int) log10(n) + 1;
+  int numDigits = (int) log10(square) + 1;
   long modulus = 1;
   long first, second;
 
@@ -49,9 +50,9 @@ int isKaprekar(int n) {
     //the second part cannot be zero and if
     //the sum of the two parts is equal to n, then it is
     if(second != 0 && n == first + second) {
-      return 0;
-    } else {
-      return 1;
+      kaprekarFlag = 1;
     }
   }
+
+  return kaprekarFlag;
 }
